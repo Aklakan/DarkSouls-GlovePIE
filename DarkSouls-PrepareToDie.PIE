@@ -1,0 +1,136 @@
+﻿/**
+ * GlovePIE Script for
+ *
+ * Dark Souls - Prepare to Die
+ *
+ * Wiimote + Nunchuk
+ *
+ * 2014 Claus Stadler
+ */
+
+/**
+ * Known Issues
+ *
+ * - The combo of (Wiimote.B => Shift [Block]) + (Nunchuck.Shake => Tab [Parry]) opens the Steam Community
+ *   Workaround: Remap the Steam Community to e.g. Ctrl+Shift+Tab
+ */
+
+/**
+ * Remarks
+ *
+ * - Hold A+B to enable walking (note that B also makes you parry)
+ * - Where applicable, the XBox->Wii button mapping is: A->A, B->B, X->1, Y->2
+ * - Press B+1 to enter gesture menu
+ * - Press B+2 to enter main menu
+ */
+
+// The following sections are organized in the same way as the Dark Soul key mapping in-game menu.
+
+/**
+ * Movement
+ */
+
+// Run (forward, backward, right, left)
+WASD = Nunchuk1.Joy
+
+// Walk (in combination with above directions)
+// Note: Parry is Wiimote1.B, thus we can only walk in parry mode - which does not seem like a great limitation
+LCtrl = Wiimote1.A + Wiimote1.B
+
+
+/**
+ * Camera
+ */
+
+// Move (forward, backward, right, left)
+I = Wiimote1.Up
+K = Wiimote1.Down
+L = Wiimote1.Right
+J = Wiimote1.Left
+
+// Lock target on or off/Reset Camera
+O = Nunchuk1.Z // C
+
+/**
+ * Switch equipment
+ */
+
+// Switch right weapon
+R = Wiimote1.One and not Wiimote1.B
+
+// Switch left weapon
+F = Wiimote1.Two and not Wiimote1.B
+
+// Switch item
+C = Wiimote1.Minus
+
+// Switch magic
+V = Wiimote1.Plus
+
+
+/**
+ * Actions
+ */
+
+// Right weapon action (attack)
+H = Wiimote1.SwingHorizontal or Wiimote1.Stabbing
+
+// Right weapon action (heavy attack)
+Y = Wiimote1.SwingVertical
+
+// Left weapon action (block)
+Tab = Nunchuck1.Shake
+
+// Left weapon action (parry)
+LShift = Wiimote1.B and not Wiimote1.One // Note: Exclusion needed to make the Gesture menu work
+
+// Use item
+E = Wiimote1.Home
+
+// Dash/Roll/Backstep
+Space = Nunchuk1.C // Z
+
+// Action/Gesture
+Q = Wiimote1.A
+
+// Toggle one-hond/two-hand grip
+LAlt = Wiimote1.Plus + Wiimote1.Minus
+
+
+/**
+ * Menu display
+ */
+
+// Open Start Menu
+End = Wiimote1.B + Wiimote1.Two
+
+// Open Gesture Menu
+G = Wiimote1.B + Wiimote1.One
+
+
+/* Menu control */
+
+// Select (up, down, left, right)
+Up = Wiimote1.Up
+Down = Wiimote1.Down
+Left = Wiimote1.Left
+Right = Wiimote1.Right
+
+// Confirm
+Enter = Wiimote1.A
+
+// Cancel
+Backspace = Wiimote1.B
+
+// Menu function 1: switch status, etc.
+Insert = Wiimote1.Two
+
+// Menu func. 2: toggle disp./remove equip., etc.
+Delete = Wiimote1.One
+
+// Switch menu (R)
+PageUp = Wiimote1.Plus
+
+// Switch menu (L)
+PageDown = Wiimote1.Minus
+
