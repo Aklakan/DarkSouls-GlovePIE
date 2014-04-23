@@ -5,7 +5,7 @@
 * All keys mapped
 * (Hopeully) intuitive mapping. Examples:
   * The buttons A, B, X or Y are mapped to A, B, 1, 2
-  * Swing the wiimote horizontal or stab for light attack, swing horizontal for heavy attack
+  * Swing the wiimote horizontal or stab for light attack, swing vertical for heavy attack
   * Shake the nunchuck to parry
   * Hold B to block
   * Hold A in addition to B to walk (will also block)
