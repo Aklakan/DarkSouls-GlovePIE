@@ -1,7 +1,7 @@
 ﻿/**
  * GlovePIE Script for
  *
- * Dark Souls - Prepare to Die Edition
+ * Dark Souls - Prepare to Die
  *
  * Wiimote + Nunchuk
  *
@@ -11,19 +11,26 @@
 /**
  * Known Issues
  *
- * - The combo of (Wiimote.B => Shift [Block]) + (Nunchuck.Shake => Tab [Parry]) opens the Steam Community
- *   Workaround: Remap the Steam Community to e.g. something containing Caps-lock (Ctrl,Shift,Tab are used in the game)
+ * - The keys [Shift] and [Tab] are used in this file, which may accidently bring up the Steam Community.
+ *   Workaround: Remap the Steam Community to e.g. Caps Lock
  */
 
 /**
  * Remarks
  *
- * - Hold A+B to enable walking (note that B also makes you parry)
- * - Press B+One to enter gesture menu
- * - Press B+Two to enter main menu
- * - Press B+Minus to switch one/two hand weapon mode
- * - Enemy focus is on Z, Dash on C (The reason is, that the former is used so much more frequently that it seemed right to assign it to the bigger button)
- * - In the menu (A),(B),(X),(Y) correspond to A,B,One,Two. Use Minus and Plus to navigate between previous and next menu, respectively.
+ * - Use nunchuck to walk/run
+ * - Use nunchuck (Z) to reset camera / focus enemy
+ * - Use wiimote cross to control camera
+ * - Where applicable, the XBox->Wii button mapping is: A->(A), B->(B), X->(1), Y->(2)
+ * - Press (A) to use item (e.g. open door)
+ * - Press (Home) to consume item from inventory (e.g. Estus flask)
+ * - Press (B) to block
+ * - Press (B)+(1) to enter gesture menu
+ * - Press (B)+(2) to enter main menu
+ * - Press (B)+(-) to toggle one/two hand mode
+ * - Shake nunchuck to parry
+ * - Stab or horizontal swing of wiimote for standard attack
+ * - Vertical swing of wiimote for heavy attack
  */
 
 // The following sections are organized in the same way as the Dark Soul key mapping in-game menu.
@@ -33,12 +40,13 @@
  */
 
 // Run (forward, backward, right, left)
-WASD = Nunchuk1.Joy
+W = Nunchuck1.JoyY < -0.3
+A = Nunchuck1.JoyX < -0.3
+S = Nunchuck1.JoyY > 0.3
+D = Nunchuck1.JoyX > 0.3
 
 // Walk (in combination with above directions)
-// Note: Block is Wiimote1.B, thus we can only walk in block mode - which does not seem like a great limitation
-LCtrl = Wiimote1.A + Wiimote1.B
-
+LCtrl = InRange(sqrt(Nunchuk1.JoyX * Nunchuk1.JoyX + Nunchuk1.JoyY * Nunchuk1.JoyY), 0.1, 0.8)
 
 /**
  * Camera
@@ -80,11 +88,11 @@ H = Wiimote1.SwingHorizontal or Wiimote1.Stabbing
 // Right weapon action (heavy attack)
 Y = Wiimote1.SwingVertical
 
-// Left weapon action (parry)
+// Left weapon action (block)
 Tab = Nunchuck1.Shake
 
-// Left weapon action (block)
-LShift = Wiimote1.B and not Wiimote1.One // Note: Exclusion needed to make 'Open Gesture Menu' work
+// Left weapon action (parry)
+LShift = Wiimote1.B and not Wiimote1.One // Note: Exclusion needed to make the Gesture menu work
 
 // Use item
 E = Wiimote1.Home
@@ -96,7 +104,7 @@ Space = Nunchuk1.C // Z
 Q = Wiimote1.A
 
 // Toggle one-hond/two-hand grip
-LAlt = Wiimote1.Minus + Wiimote1.B
+LAlt = Wiimote1.B + Wiimote1.Minus
 
 
 /**
@@ -110,9 +118,7 @@ End = Wiimote1.B + Wiimote1.Two
 G = Wiimote1.B + Wiimote1.One
 
 
-/**
- * Menu control
- */
+/* Menu control */
 
 // Select (up, down, left, right)
 Up = Wiimote1.Up
@@ -137,4 +143,5 @@ PageUp = Wiimote1.Plus
 
 // Switch menu (L)
 PageDown = Wiimote1.Minus
+
 
