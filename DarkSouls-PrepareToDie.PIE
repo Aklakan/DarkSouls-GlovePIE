@@ -24,30 +24,6 @@
  * - Press B+2 to enter main menu
  */
 
-/**
- * Helper Variables
- */
-
-// |  /
-// |-/
-// |/
-var.forwardsHalfAngle = 50
-
-//   /
-//  /|
-// ---
-var.sidewardsHalfAngle = 50
-
-
-var.minRadius = 0.3
-
-var.r = sqrt(sqr(Nunchuk1.JoyX) + sqr(Nunchuk1.JoyY))
-var.isForwards = abs(Nunchuk1.JoyY) / var.r >= sin((90 - var.forwardsHalfAngle) * PI / 180)
-var.isSidewards = abs(Nunchuk1.JoyX) / var.r >= cos(var.sidewardsHalfAngle * PI / 180)
-
-//var.angleY = arcSin(abs(Nunchuk1.JoyY) / var.r) * 180 / PI
-//var.angleX = arcCos(abs(Nunchuk1.JoyX) / var.r) * 180 / PI
-
 // The following sections are organized in the same way as the Dark Soul key mapping in-game menu.
 
 /**
@@ -55,19 +31,13 @@ var.isSidewards = abs(Nunchuk1.JoyX) / var.r >= cos(var.sidewardsHalfAngle * PI 
  */
 
 // Run (forward, backward, right, left)
-W = var.r > var.minRadius and Nunchuck1.JoyY < 0 and var.isForwards
-A = var.r > var.minRadius and Nunchuck1.JoyX < 0 and var.isSidewards
-S = var.r > var.minRadius and Nunchuck1.JoyY > 0 and var.isForwards
-D = var.r > var.minRadius and Nunchuck1.JoyX > 0 and var.isSidewards
-
-// This solution also worked pretty fine, but the angle-based approach seems better
-//W = Nunchuck1.JoyY < -0.4
-//A = Nunchuck1.JoyX < -0.5
-//S = Nunchuck1.JoyY > 0.4
-//D = Nunchuck1.JoyX > 0.5
+W = Nunchuck1.JoyY < -0.3
+A = Nunchuck1.JoyX < -0.3
+S = Nunchuck1.JoyY > 0.3
+D = Nunchuck1.JoyX > 0.3
 
 // Walk (in combination with above directions)
-LCtrl = InRange(var.r, 0.1, 0.8)
+LCtrl = InRange(sqrt(Nunchuk1.JoyX * Nunchuk1.JoyX + Nunchuk1.JoyY * Nunchuk1.JoyY), 0.1, 0.8)
 
 /**
  * Camera
@@ -107,7 +77,7 @@ V = Wiimote1.Plus
 H = Wiimote1.SwingHorizontal or Wiimote1.Stabbing
 
 // Right weapon action (heavy attack)
-U = Wiimote1.SwingVertical
+Y = Wiimote1.SwingVertical
 
 // Left weapon action (block)
 Tab = Nunchuck1.Shake
