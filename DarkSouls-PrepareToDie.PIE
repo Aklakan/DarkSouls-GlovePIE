@@ -11,26 +11,17 @@
 /**
  * Known Issues
  *
- * - The keys [Shift] and [Tab] are used in this file, which may accidently bring up the Steam Community.
- *   Workaround: Remap the Steam Community to e.g. Caps Lock
+ * - The combo of (Wiimote.B => Shift [Block]) + (Nunchuck.Shake => Tab [Parry]) opens the Steam Community
+ *   Workaround: Remap the Steam Community to e.g. Ctrl+Shift+Tab
  */
 
 /**
  * Remarks
  *
- * - Use nunchuck to walk/run
- * - Use nunchuck (Z) to reset camera / focus enemy
- * - Use wiimote cross to control camera
- * - Where applicable, the XBox->Wii button mapping is: A->(A), B->(B), X->(1), Y->(2)
- * - Press (A) to use item (e.g. open door)
- * - Press (Home) to consume item from inventory (e.g. Estus flask)
- * - Press (B) to block
- * - Press (B)+(1) to enter gesture menu
- * - Press (B)+(2) to enter main menu
- * - Press (B)+(-) to toggle one/two hand mode
- * - Shake nunchuck to parry
- * - Stab or horizontal swing of wiimote for standard attack
- * - Vertical swing of wiimote for heavy attack
+ * - Hold A+B to enable walking (note that B also makes you parry)
+ * - Where applicable, the XBox->Wii button mapping is: A->A, B->B, X->1, Y->2
+ * - Press B+1 to enter gesture menu
+ * - Press B+2 to enter main menu
  */
 
 /**
